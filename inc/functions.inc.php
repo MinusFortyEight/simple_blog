@@ -14,10 +14,10 @@
         if(isset($id))
         {
             // load it, bitch!
-            $sql = 'select title, entry
+            $sql = "select title, entry
                     from entries
                     where id=?
-                    limit 1';
+                    limit 1";
             $stmt = $db->prepare($sql);
             $stmt->execute(array($_GET['id']));
 
@@ -30,9 +30,9 @@
         // load all entry titles as a new entry has not been submitted
         else
         {
-            $sql = 'select id, title, entry
+            $sql = "select id, title, entry
                     from entries
-                    order by created desc';
+                    order by created desc";
 
             // loop through returned entries (results) and store them as an array
 
@@ -69,7 +69,10 @@
         }
 
         // add full display flag to end of the array
-        array_push($e, $fulldisp);
+        if(is_array($e))
+        {
+            array_push($e, $fulldisp);
+        }
 
         return $e;
     }

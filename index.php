@@ -11,9 +11,14 @@
 
     // load the entries
     $e = retrieveEntries($db, $id);
+    //var_dump($e);
 
+    $fulldisp = 0;
     // get full display flag and remove it from array
-    $fulldisp = array_pop($e);
+    if(is_array($e))
+    {
+        $fulldisp = array_pop($e);
+    }
 
     // sanitize the entry data
     $e = sanitizeData($e);
@@ -58,18 +63,21 @@
             // if the full display flag is 0, format linked entry titles
             else
             {
-                // loop through each entry
-                foreach($e as $entry)
+                if(is_array($e))
                 {
+                // loop through each entry
+                    foreach($e as $entry)
+                    {
         ?>
-                <p>
+                        <p>
 
-                    <a href="?id=<?php echo $entry['id']; ?>">
-                    <?php echo $entry['title']; ?>
-                    </a>
+                            <a href="?id=<?php echo $entry['id']; ?>">
+                            <?php echo $entry['title']; ?>
+                            </a>
 
-                </p>
+                        </p>
         <?php
+                    }
                 }
             }
 

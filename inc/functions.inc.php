@@ -36,6 +36,8 @@
 
             // loop through returned entries (results) and store them as an array
 
+            $e = '';
+
             foreach($db->query($sql) as $row)
             {
                 $e[] = array(
@@ -61,7 +63,7 @@
                 $fulldisp = 1;
                 $e = array(
                     'title' => 'No Entries Yet!',
-                    'entry' => '<a href="admin.php">Post an entry, asshole!</a>'
+                    'entry' => '<a href="admin.php">Post an entry!</a>'
                 );
             }
         }

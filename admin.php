@@ -15,8 +15,7 @@
 
 	<h1> Simple Blog Application</h1>
 
-	<!--<form method="post" action="inc/update.inc.php"> -->
-	<form method="post">
+	<form method="post" action="inc/update.inc.php">
 		<fieldset>
 			<legend>New Entry Submission</legend>
 			<label>Title
